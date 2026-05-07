@@ -68,7 +68,7 @@
 .social:hover {
   color: var(--color-text);
   border-color: var(--color-primary);
-  background: rgba(108, 99, 255, 0.1);
+  background: rgba(249, 115, 22, 0.1);
 }
 
 .links {
