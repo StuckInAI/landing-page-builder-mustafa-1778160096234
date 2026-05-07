@@ -1,4 +1,5 @@
-import { Check, X } from 'lucide-react';
+import { Check, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import styles from './Pricing.module.css';
 import type { PricingPlan } from '@/types';
@@ -7,54 +8,52 @@ const plans: PricingPlan[] = [
   {
     id: 'starter',
     name: 'Starter',
-    price: '$0',
-    period: '/month',
-    description: 'Perfect for personal projects and getting started.',
+    price: 0,
+    billingPeriod: 'forever',
+    description: 'Perfect for side projects and experimentation.',
     features: [
       '3 projects',
-      '100 GB bandwidth',
+      '50 agent runs / month',
+      'Code generation agent',
       'Community support',
-      'Basic analytics',
-      'Shared infrastructure',
+      '100 MB storage',
     ],
-    cta: 'Get started free',
-    highlighted: false,
+    ctaLabel: 'Get started free',
   },
   {
     id: 'pro',
     name: 'Pro',
-    price: '$29',
-    period: '/month',
-    description: 'Everything you need to build and scale serious applications.',
+    price: 29,
+    billingPeriod: 'month',
+    description: 'For professional developers who ship fast.',
     features: [
       'Unlimited projects',
-      '1 TB bandwidth',
+      '2,000 agent runs / month',
+      'All 5 agent types',
       'Priority support',
+      '10 GB storage',
+      'Social sharing integrations',
       'Advanced analytics',
-      'Custom domains',
-      'Preview environments',
-      'Team collaboration',
     ],
-    cta: 'Start free trial',
     highlighted: true,
+    ctaLabel: 'Start Pro trial',
   },
   {
     id: 'enterprise',
     name: 'Enterprise',
-    price: 'Custom',
-    period: '',
-    description: 'Dedicated infrastructure and white-glove support for large teams.',
+    price: 99,
+    billingPeriod: 'month',
+    description: 'For teams and organizations at scale.',
     features: [
       'Everything in Pro',
-      'Unlimited bandwidth',
-      'Dedicated support',
-      'SLA guarantee',
+      'Unlimited agent runs',
+      'Custom agent workflows',
       'SSO & SAML',
-      'Custom integrations',
-      'Audit logs',
+      'Dedicated success manager',
+      'SLA guarantee',
+      '99.99% uptime',
     ],
-    cta: 'Contact sales',
-    highlighted: false,
+    ctaLabel: 'Contact sales',
   },
 ];
 
@@ -67,49 +66,49 @@ export default function Pricing() {
           <h2 className={styles.heading}>
             Simple, transparent
             <br />
-            <span className={styles.highlight}>pricing for everyone</span>
+            <span className={styles.highlight}>pricing</span>
           </h2>
           <p className={styles.subheading}>
-            Start free, upgrade when you need to. No hidden fees, no surprises.
+            Start for free. Upgrade when you need more power.
+            No hidden fees, no surprises.
           </p>
         </div>
 
         <div className={styles.grid}>
           {plans.map((plan) => (
-            <div key={plan.id} className={clsx(styles.card, plan.highlighted && styles.highlighted)}>
+            <div
+              key={plan.id}
+              className={clsx(styles.card, plan.highlighted && styles.cardHighlighted)}
+            >
               {plan.highlighted && (
-                <div className={styles.popularBadge}>Most Popular</div>
+                <div className={styles.popularBadge}>
+                  <Zap size={12} fill="currentColor" />
+                  Most Popular
+                </div>
               )}
-              <div className={styles.planHeader}>
+              <div className={styles.cardTop}>
                 <h3 className={styles.planName}>{plan.name}</h3>
                 <div className={styles.priceRow}>
+                  <span className={styles.currency}>$</span>
                   <span className={styles.price}>{plan.price}</span>
-                  {plan.period && <span className={styles.period}>{plan.period}</span>}
+                  <span className={styles.period}>/{plan.billingPeriod}</span>
                 </div>
                 <p className={styles.planDesc}>{plan.description}</p>
               </div>
-
-              <ul className={styles.featureList}>
+              <ul className={styles.features}>
                 {plan.features.map((feature) => (
                   <li key={feature} className={styles.featureItem}>
                     <Check size={16} className={styles.checkIcon} />
                     <span>{feature}</span>
                   </li>
                 ))}
-                {plan.id === 'starter' && (
-                  <li className={clsx(styles.featureItem, styles.disabled)}>
-                    <X size={16} className={styles.xIcon} />
-                    <span>Preview environments</span>
-                  </li>
-                )}
               </ul>
-
-              <a
-                href="#"
-                className={clsx(styles.ctaBtn, plan.highlighted && styles.ctaBtnHighlighted)}
+              <Link
+                to="/register"
+                className={clsx(styles.cta, plan.highlighted && styles.ctaHighlighted)}
               >
-                {plan.cta}
-              </a>
+                {plan.ctaLabel}
+              </Link>
             </div>
           ))}
         </div>

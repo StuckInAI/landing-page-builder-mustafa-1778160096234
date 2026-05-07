@@ -1,4 +1,5 @@
 import { Zap, Twitter, Github, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 
 const footerLinks = [
@@ -12,12 +13,12 @@ const footerLinks = [
     ],
   },
   {
-    heading: 'Developers',
+    heading: 'Platform',
     links: [
-      { label: 'Documentation', href: '#' },
+      { label: 'Dashboard', href: '/dashboard' },
+      { label: 'Projects', href: '/dashboard' },
+      { label: 'Settings', href: '/settings' },
       { label: 'API Reference', href: '#' },
-      { label: 'Guides', href: '#' },
-      { label: 'CLI', href: '#' },
     ],
   },
   {
@@ -46,12 +47,12 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <a href="#" className={styles.logo}>
+            <Link to="/" className={styles.logo}>
               <Zap size={20} className={styles.logoIcon} />
-              <span>Launchpad</span>
-            </a>
+              <span>AgentAI</span>
+            </Link>
             <p className={styles.tagline}>
-              The platform that helps teams build faster and ship smarter.
+              The prompt-based coding platform powered by multi-purpose AI agents for developers.
             </p>
             <div className={styles.socials}>
               <a href="#" className={styles.social} aria-label="Twitter">
@@ -73,7 +74,11 @@ export default function Footer() {
                 <ul className={styles.colLinks}>
                   {col.links.map((link) => (
                     <li key={link.label}>
-                      <a href={link.href} className={styles.colLink}>{link.label}</a>
+                      {link.href.startsWith('/') ? (
+                        <Link to={link.href} className={styles.colLink}>{link.label}</Link>
+                      ) : (
+                        <a href={link.href} className={styles.colLink}>{link.label}</a>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -84,7 +89,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © {new Date().getFullYear()} Launchpad, Inc. All rights reserved.
+            © {new Date().getFullYear()} AgentAI, Inc. All rights reserved.
           </p>
           <p className={styles.madeWith}>
             Built with ❤️ for developers everywhere.

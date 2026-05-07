@@ -1,47 +1,47 @@
-import { Zap, Shield, Globe, Code2, BarChart3, Layers } from 'lucide-react';
+import { Bot, Shield, TestTube, Code2, Share2, Layers } from 'lucide-react';
 import styles from './Features.module.css';
 
 const features = [
   {
     id: '1',
-    Icon: Zap,
-    title: 'Blazing Fast Performance',
-    description: 'Optimized infrastructure ensures sub-second response times and 99.99% uptime SLA across all regions.',
+    Icon: Bot,
+    title: 'Multi-Purpose AI Agents',
+    description: 'Specialized agents for code generation, testing, review, debugging, and refactoring — all orchestrated from a single prompt.',
     color: '#6c63ff',
   },
   {
     id: '2',
-    Icon: Shield,
-    title: 'Enterprise-grade Security',
-    description: 'SOC2 Type II certified with end-to-end encryption, SSO, and advanced role-based access control.',
+    Icon: Code2,
+    title: 'Prompt-to-Code Pipeline',
+    description: 'Describe your intent in plain English. Our agents understand context, language, and best practices to produce production-ready code.',
     color: '#00d4aa',
   },
   {
     id: '3',
-    Icon: Globe,
-    title: 'Global Edge Network',
-    description: 'Deploy to 200+ edge locations worldwide. Your users always connect to the nearest node automatically.',
+    Icon: TestTube,
+    title: 'Agentic Testing',
+    description: 'Agents automatically generate unit, integration, and edge-case tests for your code — and simulate running them with detailed reports.',
     color: '#8b5cf6',
   },
   {
     id: '4',
-    Icon: Code2,
-    title: 'Developer-First DX',
-    description: 'Git-based workflows, CLI tools, and API-first design so your team can move at the speed of thought.',
+    Icon: Shield,
+    title: '2FA & Enterprise Security',
+    description: 'TOTP-based two-factor authentication, encrypted sessions, and role-based access control to keep your projects safe.',
     color: '#f59e0b',
   },
   {
     id: '5',
-    Icon: BarChart3,
-    title: 'Real-time Analytics',
-    description: 'Built-in observability with live dashboards, error tracking, and performance insights out of the box.',
+    Icon: Share2,
+    title: 'Social Media Integrations',
+    description: 'Share generated code snippets, test results, and insights directly to Twitter and LinkedIn with one click.',
     color: '#ec4899',
   },
   {
     id: '6',
     Icon: Layers,
-    title: 'Seamless Integrations',
-    description: '300+ native integrations with your favorite tools. Slack, GitHub, Linear, Jira, and more.',
+    title: 'Project Dashboard',
+    description: 'Manage all your projects, review agent interaction history, track test results, and monitor agent runs in one place.',
     color: '#06b6d4',
   },
 ];
@@ -55,11 +55,11 @@ export default function Features() {
           <h2 className={styles.heading}>
             Everything you need to
             <br />
-            <span className={styles.highlight}>build great products</span>
+            <span className={styles.highlight}>build with AI agents</span>
           </h2>
           <p className={styles.subheading}>
-            A complete platform built for modern development teams who demand
-            the best tools without the operational overhead.
+            A complete agentic platform built for developers who want to move faster
+            without sacrificing code quality or security.
           </p>
         </div>
 

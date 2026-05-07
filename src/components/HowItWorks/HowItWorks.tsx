@@ -3,23 +3,23 @@ import styles from './HowItWorks.module.css';
 const steps = [
   {
     num: '01',
-    title: 'Connect your repository',
-    description: 'Link your GitHub, GitLab, or Bitbucket repository in seconds. We automatically detect your project type and configure everything for you.',
+    title: 'Create a project & choose your agent',
+    description: 'Sign up, create a project, and select from our multi-purpose agents: Code Generator, Test Agent, Code Reviewer, Debugger, or Refactoring Agent.',
   },
   {
     num: '02',
-    title: 'Configure your pipeline',
-    description: 'Choose from 50+ pre-built templates or customize your build, test, and deploy pipeline with a simple YAML configuration file.',
+    title: 'Describe your intent in plain English',
+    description: 'Type a natural language prompt describing what you want to build, fix, or test. No special syntax required — just describe the outcome you need.',
   },
   {
     num: '03',
-    title: 'Deploy with confidence',
-    description: 'Every push triggers an automated pipeline. Preview environments for every PR, instant rollbacks, and zero-downtime deployments.',
+    title: 'Agents generate & test your code',
+    description: 'Our orchestration layer routes your prompt to the right agents, which generate code, write tests, review quality, and simulate test runs — automatically.',
   },
   {
     num: '04',
-    title: 'Monitor and scale',
-    description: 'Real-time metrics, alerts, and auto-scaling ensure your application always performs at its best, no matter the traffic.',
+    title: 'Review, share, and iterate',
+    description: 'Review results in the interactive editor, share code snippets to Twitter or LinkedIn, and iterate with follow-up prompts until your solution is perfect.',
   },
 ];
 
@@ -30,7 +30,7 @@ export default function HowItWorks() {
         <div className={styles.header}>
           <span className={styles.badge}>How It Works</span>
           <h2 className={styles.heading}>
-            From zero to production
+            From prompt to production
             <br />
             <span className={styles.highlight}>in four simple steps</span>
           </h2>

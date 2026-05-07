@@ -1,4 +1,5 @@
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight, Bot } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import styles from './CTA.module.css';
 
 export default function CTA() {
@@ -9,25 +10,25 @@ export default function CTA() {
         <div className={styles.orb2} />
         <div className={styles.inner}>
           <div className={styles.iconWrap}>
-            <Zap size={28} fill="currentColor" />
+            <Bot size={28} fill="currentColor" />
           </div>
           <h2 className={styles.heading}>
-            Ready to launch
+            Ready to build with
             <br />
-            <span className={styles.highlight}>your next project?</span>
+            <span className={styles.highlight}>AI agents?</span>
           </h2>
           <p className={styles.description}>
-            Join 50,000+ developers already building on Launchpad.
-            Start for free — no credit card required.
+            Join thousands of developers already using AgentAI to generate code,
+            run tests, and ship faster. Start for free — no credit card required.
           </p>
           <div className={styles.actions}>
-            <a href="#pricing" className={styles.primaryBtn}>
-              Get started for free
+            <Link to="/register" className={styles.primaryBtn}>
+              Start building for free
               <ArrowRight size={18} />
-            </a>
-            <a href="#" className={styles.secondaryBtn}>
-              Talk to sales
-            </a>
+            </Link>
+            <Link to="/login" className={styles.secondaryBtn}>
+              Sign in
+            </Link>
           </div>
           <p className={styles.disclaimer}>
             Free forever on Starter. Upgrade anytime. Cancel anytime.

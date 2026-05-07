@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Menu, X, Zap } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import styles from './Navbar.module.css';
+import { useAuthStore } from '@/store/authStore';
 import type { NavItem } from '@/types';
 
 const navItems: NavItem[] = [
@@ -14,6 +16,8 @@ const navItems: NavItem[] = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { isAuthenticated, logout } = useAuthStore();
+  const navigate = useNavigate();
 
   if (typeof window !== 'undefined') {
     window.onscroll = () => {
@@ -21,13 +25,18 @@ export default function Navbar() {
     };
   }
 
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <header className={clsx(styles.navbar, scrolled && styles.scrolled)}>
       <div className={styles.container}>
-        <a href="#" className={styles.logo}>
+        <Link to="/" className={styles.logo}>
           <Zap size={22} className={styles.logoIcon} />
-          <span>Launchpad</span>
-        </a>
+          <span>AgentAI</span>
+        </Link>
 
         <nav className={styles.nav}>
           {navItems.map((item) => (
@@ -38,8 +47,17 @@ export default function Navbar() {
         </nav>
 
         <div className={styles.actions}>
-          <a href="#" className={styles.loginBtn}>Log in</a>
-          <a href="#pricing" className={styles.ctaBtn}>Get Started</a>
+          {isAuthenticated ? (
+            <>
+              <Link to="/dashboard" className={styles.loginBtn}>Dashboard</Link>
+              <button onClick={handleLogout} className={styles.ctaBtn}>Log out</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className={styles.loginBtn}>Log in</Link>
+              <Link to="/register" className={styles.ctaBtn}>Get Started</Link>
+            </>
+          )}
         </div>
 
         <button
@@ -64,8 +82,17 @@ export default function Navbar() {
             </a>
           ))}
           <div className={styles.mobileActions}>
-            <a href="#" className={styles.loginBtn}>Log in</a>
-            <a href="#pricing" className={styles.ctaBtn}>Get Started</a>
+            {isAuthenticated ? (
+              <>
+                <Link to="/dashboard" className={styles.loginBtn}>Dashboard</Link>
+                <button onClick={handleLogout} className={styles.ctaBtn}>Log out</button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className={styles.loginBtn}>Log in</Link>
+                <Link to="/register" className={styles.ctaBtn}>Get Started</Link>
+              </>
+            )}
           </div>
         </div>
       )}

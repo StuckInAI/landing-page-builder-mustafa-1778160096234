@@ -1,4 +1,5 @@
-import { ArrowRight, Play, Star } from 'lucide-react';
+import { ArrowRight, Play, Star, Bot, Cpu, TestTube } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -12,32 +13,47 @@ export default function Hero() {
 
       <div className={styles.container}>
         <div className={styles.badge}>
-          <Star size={12} fill="currentColor" />
-          <span>Trusted by 50,000+ developers worldwide</span>
+          <Bot size={12} />
+          <span>Multi-agent AI coding platform for developers</span>
         </div>
 
         <h1 className={styles.heading}>
-          Build Faster,
+          Code Smarter with
           <br />
-          <span className={styles.highlight}>Ship Smarter</span>
+          <span className={styles.highlight}>Agentic AI</span>
         </h1>
 
         <p className={styles.description}>
-          The all-in-one platform that supercharges your development workflow.
-          From idea to production in record time — with zero compromise on quality.
+          Describe what you want to build. Our multi-purpose AI agents generate production-ready code,
+          write comprehensive tests, review your codebase, and debug issues — all from a single prompt.
         </p>
 
         <div className={styles.actions}>
-          <a href="#pricing" className={styles.primaryBtn}>
-            Start for free
+          <Link to="/register" className={styles.primaryBtn}>
+            Start building for free
             <ArrowRight size={18} />
-          </a>
+          </Link>
           <a href="#how-it-works" className={styles.secondaryBtn}>
             <span className={styles.playIcon}>
               <Play size={14} fill="currentColor" />
             </span>
             See how it works
           </a>
+        </div>
+
+        <div className={styles.agentBadges}>
+          <div className={styles.agentBadge}>
+            <Bot size={14} className={styles.agentIcon} style={{ color: '#6c63ff' }} />
+            <span>Code Generation</span>
+          </div>
+          <div className={styles.agentBadge}>
+            <TestTube size={14} className={styles.agentIcon} style={{ color: '#00d4aa' }} />
+            <span>Agentic Testing</span>
+          </div>
+          <div className={styles.agentBadge}>
+            <Cpu size={14} className={styles.agentIcon} style={{ color: '#f59e0b' }} />
+            <span>Code Review & Debug</span>
+          </div>
         </div>
 
         <div className={styles.meta}>
@@ -52,7 +68,7 @@ export default function Hero() {
                 <Star key={s} size={14} fill="#f59e0b" color="#f59e0b" />
               ))}
             </div>
-            <span>4.9/5 from 2,000+ reviews</span>
+            <span>4.9/5 from 2,000+ developer reviews</span>
           </div>
         </div>
 
@@ -63,43 +79,47 @@ export default function Hero() {
               <span className={styles.dotYellow} />
               <span className={styles.dotGreen} />
             </div>
-            <span className={styles.cardTitle}>dashboard.tsx</span>
+            <span className={styles.cardTitle}>AgentAI — Code Generator</span>
           </div>
           <div className={styles.codeBlock}>
             <div className={styles.codeLine}>
-              <span className={styles.lineNum}>1</span>
-              <span className={styles.kw}>import</span>
-              <span className={styles.normal}> &#123; Launchpad &#125; </span>
-              <span className={styles.kw}>from</span>
-              <span className={styles.str}> 'launchpad'</span>
+              <span className={styles.lineNum}>▶</span>
+              <span className={styles.str}>"Build a REST API with auth, rate limiting, and Swagger docs"</span>
             </div>
             <div className={styles.codeLine}>
-              <span className={styles.lineNum}>2</span>
+              <span className={styles.lineNum}> </span>
               <span className={styles.normal}>&nbsp;</span>
             </div>
             <div className={styles.codeLine}>
-              <span className={styles.lineNum}>3</span>
-              <span className={styles.kw}>export default function</span>
-              <span className={styles.fn}> App</span>
-              <span className={styles.normal}>() &#123;</span>
+              <span className={styles.lineNum}>🤖</span>
+              <span className={styles.kw}>Agent:</span>
+              <span className={styles.normal}> Analyzing prompt...</span>
             </div>
             <div className={styles.codeLine}>
-              <span className={styles.lineNum}>4</span>
-              <span className={styles.normal}>&nbsp;&nbsp;</span>
-              <span className={styles.kw}>return</span>
-              <span className={styles.normal}> &lt;</span>
-              <span className={styles.tag}>Launchpad</span>
-              <span className={styles.normal}> /&gt;</span>
+              <span className={styles.lineNum}> </span>
+              <span className={styles.fn}>✓ Scaffolding Express server</span>
             </div>
             <div className={styles.codeLine}>
-              <span className={styles.lineNum}>5</span>
-              <span className={styles.normal}>&#125;</span>
+              <span className={styles.lineNum}> </span>
+              <span className={styles.fn}>✓ Generating JWT auth middleware</span>
+            </div>
+            <div className={styles.codeLine}>
+              <span className={styles.lineNum}> </span>
+              <span className={styles.fn}>✓ Adding rate limiter</span>
+            </div>
+            <div className={styles.codeLine}>
+              <span className={styles.lineNum}> </span>
+              <span className={styles.fn}>✓ Writing Swagger/OpenAPI spec</span>
+            </div>
+            <div className={styles.codeLine}>
+              <span className={styles.lineNum}> </span>
+              <span className={styles.tag}>✓ Generating 24 test cases</span>
             </div>
           </div>
           <div className={styles.cardFooter}>
             <span className={styles.statusDot} />
-            <span>Deployed in 1.2s</span>
-            <span className={styles.cardBadge}>✓ Live</span>
+            <span>Generated in 3.2s</span>
+            <span className={styles.cardBadge}>✓ Ready</span>
           </div>
         </div>
       </div>

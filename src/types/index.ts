@@ -1,43 +1,54 @@
-export type NavItem = {
+export interface NavItem {
   label: string;
   href: string;
-};
+}
 
-export type Feature = {
+export interface Feature {
   id: string;
-  icon: string;
+  Icon: React.ComponentType<{ size?: number; color?: string; className?: string }>;
   title: string;
   description: string;
-};
+  color: string;
+}
 
-export type PricingPlan = {
+export interface PricingPlan {
   id: string;
   name: string;
-  price: string;
-  period: string;
+  price: number;
+  billingPeriod: string;
   description: string;
   features: string[];
-  cta: string;
-  highlighted: boolean;
-};
+  highlighted?: boolean;
+  ctaLabel: string;
+}
 
-export type Testimonial = {
+export interface Testimonial {
   id: string;
-  name: string;
+  text: string;
+  author: string;
   role: string;
-  company: string;
   avatar: string;
-  quote: string;
-  rating: number;
-};
+}
 
-export type Stat = {
-  value: string;
-  label: string;
-};
-
-export type FAQ = {
+export interface FAQ {
   id: string;
   question: string;
   answer: string;
-};
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface AgentRun {
+  id: string;
+  projectId: string;
+  prompt: string;
+  status: 'pending' | 'running' | 'completed' | 'failed';
+  result?: string;
+  createdAt: string;
+}
